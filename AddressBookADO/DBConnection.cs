@@ -13,7 +13,7 @@ namespace AddressBookADO
         public SqlConnection GetConnection()
         {
             
-            string connectiongString = @"Data Source=RAMYA\SQLEXPRESS;Initial Catalog=addressbook_service;Integrated Security=True";
+            string connectiongString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=Address_Book_Service;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectiongString);
             return connection;
         }
