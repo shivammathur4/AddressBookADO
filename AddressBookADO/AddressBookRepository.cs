@@ -62,5 +62,34 @@ namespace AddressBookADO
                 this.connection.Close();
             }
         }
+
+
+        public bool UpdateContactTable()
+        {
+            try
+            {
+                string query = @"update New_Address_Book set Address = 'DollarsColony' , City = 'Nazimabada' where  Id = 3";
+                using (this.connection)
+                {
+                    SqlCommand command = new SqlCommand(query, this.connection);
+                    this.connection.Open();
+                    int result = command.ExecuteNonQuery();
+                    if (result != 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+        }
+    
     }
 }

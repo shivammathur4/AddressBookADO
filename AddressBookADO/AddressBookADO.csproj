@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AddressBookModel.cs" />
     <Compile Include="AddressBookRepository.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
