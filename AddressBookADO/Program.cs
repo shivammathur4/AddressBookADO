@@ -13,7 +13,8 @@ namespace AddressBookADO
         {
             Console.WriteLine("Hello, Welcome to AddressBookADO.Net!");
             AddressBookRepository addressBookRepo = new AddressBookRepository();
-            addressBookRepo.GetAllContacts();
+            bool result = addressBookRepo.UpdateContactTable();
+            Console.WriteLine("Contact Updated in Table : " + result);
             Console.ReadKey();
         }
     }
