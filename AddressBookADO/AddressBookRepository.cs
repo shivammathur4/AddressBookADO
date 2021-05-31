@@ -143,7 +143,55 @@ namespace AddressBookADO
             }
         }
 
+        public void RetrieveContactByCity()
+        {
+            try
+            {
+                AddressBookModel model = new AddressBookModel();
+                using (this.connection)
+                {
+                    string query = @"select * from New_Address_Book where City = 'Bangalore';";
 
+                    SqlCommand command = new SqlCommand(query, this.connection);
+                    this.connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            model.ContactId = reader.GetInt32(0);
+                            model.FirstName = reader.GetString(1);
+                            model.LastName = reader.GetString(2);
+                            model.Address = reader.GetString(3);
+                            model.City = reader.GetString(4);
+                            model.State = reader.GetString(5);
+                            model.Zip = reader.GetInt32(6);
+                            model.PhoneNumber = reader.GetString(7);
+                            model.Email = reader.GetString(8);
+                            model.AddedDate = reader.GetDateTime(9);
+
+                            Console.WriteLine(model.ContactId + "\t" + model.FirstName + "\t" + model.LastName + "\t" + model.Address + "\t"
+                                + model.City + "\t" + model.State + "\t" + model.Zip + "\t" + model.PhoneNumber + "\t" + model.Email + "\t"
+                                + model.AddedDate);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Data Found");
+                    }
+                    reader.Close();
+                    this.connection.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+        }
 
     }
 

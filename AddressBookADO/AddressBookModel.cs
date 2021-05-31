@@ -22,6 +22,5 @@ namespace AddressBookADO
         public string Type { get; set; }
         public int BookId { get; set; }
         public DateTime AddedDate { get; set; }
-
     }
 }

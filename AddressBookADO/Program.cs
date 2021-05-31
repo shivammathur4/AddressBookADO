@@ -8,13 +8,12 @@ namespace AddressBookADO
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, Welcome to AddressBookADO.Net!");
             AddressBookRepository addressBookRepo = new AddressBookRepository();
-            addressBookRepo.RetrieveContactWithinDateRange();
-            Console.ReadKey();
+            addressBookRepo.RetrieveContactByCity();
         }
     }
 }
